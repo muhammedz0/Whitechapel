@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Düzenle – WHITECHAPEL</title>
+  <meta name="description" content="Whitechapel profil özelleştirme" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body class="profile-edit-page">
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <span class="loader-icon">🔪</span>
+        <span class="loader-brand">WHITECHAPEL</span>
+        <span class="loader-sub">HORROR COMMUNITY</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ========== CURSOR ========== -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔪</span>
+        <div class="logo-text-wrap">
+          <span class="logo-text">WHITECHAPEL</span>
+          <span class="logo-sub">HORROR COMMUNITY</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#announcements">Duyurular</a></li>
+        <li><a href="index.html#community">Topluluk</a></li>
+        <li><a href="index.html#games">Oyunlar</a></li>
+        <li><a href="index.html#about">Hakkımızda</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="user-menu" id="userMenu">
+          <button class="user-avatar-btn" id="userAvatarBtn">
+            <img src="" alt="Avatar" id="navAvatar" />
+          </button>
+          <div class="user-dropdown" id="userDropdown">
+            <a href="#" class="dropdown-item" id="myProfileLink">
+              <i class="fa-solid fa-user"></i> Profilim
+            </a>
+            <a href="profile-edit.html" class="dropdown-item">
+              <i class="fa-solid fa-pen"></i> Profili Düzenle
+            </a>
+            <a href="#" class="dropdown-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i> Çıkış
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== EDIT CONTAINER ========== -->
+  <main class="edit-container">
+    
+    <div class="edit-header">
+      <h1><i class="fa-solid fa-pen"></i> Profili Özelleştir</h1>
+      <a href="#" class="btn-back" id="backBtn">
+        <i class="fa-solid fa-arrow-left"></i> Profile Dön
+      </a>
+    </div>
+
+    <div class="edit-content">
+      
+      <!-- Live Preview Sidebar -->
+      <aside class="edit-preview">
+        <h3 class="preview-title">
+          <i class="fa-solid fa-eye"></i> Ön İzleme
+        </h3>
+        
+        <div class="preview-profile-card">
+          <!-- Banner Preview -->
+          <div class="preview-banner" id="previewBanner">
+            <div class="banner-overlay"></div>
+          </div>
+          
+          <!-- Avatar Preview -->
+          <div class="preview-avatar-wrap">
+            <img src="" alt="Avatar" id="previewAvatar" class="preview-avatar" />
+          </div>
+          
+          <!-- Info Preview -->
+          <div class="preview-info">
+            <h4 class="preview-username" id="previewUsername">Username</h4>
+            <p class="preview-status" id="previewStatus">Status message...</p>
+            <p class="preview-bio" id="previewBio">Bio text here...</p>
+          </div>
+        </div>
+
+        <div class="theme-preview-colors">
+          <div class="color-preview-item">
+            <div class="color-preview-box" id="previewBgColor"></div>
+            <span>Arkaplan</span>
+          </div>
+          <div class="color-preview-item">
+            <div class="color-preview-box" id="previewAccentColor"></div>
+            <span>Vurgu</span>
+          </div>
+          <div class="color-preview-item">
+            <div class="color-preview-box" id="previewTextColor"></div>
+            <span>Yazı</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Edit Form -->
+      <div class="edit-form-wrap">
+        
+        <form id="profileEditForm">
+          
+          <!-- Banner Section -->
+          <div class="edit-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-image"></i> Banner & Avatar
+            </h3>
+            
+            <div class="upload-group">
+              <label class="upload-label">Banner Resmi</label>
+              <div class="upload-preview" id="bannerPreview">
+                <img src="" alt="Banner" id="bannerImg" style="display:none;" />
+                <div class="upload-placeholder" id="bannerPlaceholder">
+                  <i class="fa-solid fa-image"></i>
+                  <span>Banner yükle (1500x500 önerilir)</span>
+                </div>
+              </div>
+              <div class="upload-actions">
+                <label for="bannerInput" class="btn-upload">
+                  <i class="fa-solid fa-upload"></i> Banner Yükle
+                </label>
+                <input type="file" id="bannerInput" accept="image/*" style="display:none;" />
+                <button type="button" class="btn-remove" id="removeBannerBtn" style="display:none;">
+                  <i class="fa-solid fa-trash"></i> Kaldır
+                </button>
+              </div>
+            </div>
+
+            <div class="upload-group">
+              <label class="upload-label">Profil Resmi</label>
+              <div class="upload-preview avatar-upload-preview">
+                <img src="" alt="Avatar" id="avatarImg" />
+              </div>
+              <div class="upload-actions">
+                <label for="avatarInput" class="btn-upload">
+                  <i class="fa-solid fa-upload"></i> Avatar Yükle
+                </label>
+                <input type="file" id="avatarInput" accept="image/*" style="display:none;" />
+                <button type="button" class="btn-remove" id="removeAvatarBtn" style="display:none;">
+                  <i class="fa-solid fa-trash"></i> Discord Avatar'a Dön
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Basic Info Section -->
+          <div class="edit-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-user"></i> Temel Bilgiler
+            </h3>
+            
+            <div class="form-group">
+              <label for="displayName">Görünen İsim</label>
+              <input 
+                type="text" 
+                id="displayName" 
+                name="displayName" 
+                maxlength="50" 
+                placeholder="Discord kullanıcı adın kullanılacak" 
+              />
+              <span class="char-count"><span id="displayNameCount">0</span>/50</span>
+            </div>
+
+            <div class="form-group">
+              <label for="statusMessage">Durum Mesajı</label>
+              <input 
+                type="text" 
+                id="statusMessage" 
+                name="statusMessage" 
+                maxlength="100" 
+                placeholder="Kısa bir durum mesajı..." 
+              />
+              <span class="char-count"><span id="statusCount">0</span>/100</span>
+            </div>
+
+            <div class="form-group">
+              <label for="bio">Hakkında (Bio)</label>
+              <textarea 
+                id="bio" 
+                name="bio" 
+                maxlength="500" 
+                rows="5" 
+                placeholder="Kendinden bahset..."
+              ></textarea>
+              <span class="char-count"><span id="bioCount">0</span>/500</span>
+            </div>
+
+            <div class="form-group">
+              <label for="favoriteSlasher">Favori Slasher Karakter</label>
+              <select id="favoriteSlasher" name="favoriteSlasher">
+                <option value="">Seçim yok</option>
+                <option value="michael-myers">🎃 Michael Myers</option>
+                <option value="jason-voorhees">🏒 Jason Voorhees</option>
+                <option value="ghostface">☎️ Ghostface</option>
+                <option value="freddy-krueger">🔥 Freddy Krueger</option>
+                <option value="leatherface">🪚 Leatherface</option>
+                <option value="pennywise">🎈 Pennywise</option>
+                <option value="chucky">🔪 Chucky</option>
+                <option value="pinhead">📌 Pinhead</option>
+                <option value="art-the-clown">🤡 Art the Clown</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="profileVisibility">Profil Gizliliği</label>
+              <select id="profileVisibility" name="profileVisibility">
+                <option value="public">🌐 Herkese Açık</option>
+                <option value="friends">👥 Sadece Arkadaşlar</option>
+                <option value="private">🔒 Gizli</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Theme Section -->
+          <div class="edit-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-palette"></i> Tema Özelleştirme
+            </h3>
+            
+            <div class="form-group">
+              <label for="theme">Hazır Tema</label>
+              <select id="theme" name="theme">
+                <option value="blood">🩸 Blood (Kan Kırmızısı)</option>
+                <option value="dark">🌑 Dark (Koyu)</option>
+                <option value="nightmare">😈 Nightmare (Kabus)</option>
+                <option value="asylum">🏥 Asylum (Tımarhane)</option>
+              </select>
+            </div>
+
+            <div class="color-grid">
+              <div class="form-group">
+                <label for="backgroundColor">Arkaplan Rengi</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="backgroundColor" name="backgroundColor" value="#0a0a0a" />
+                  <input type="text" id="backgroundColorText" value="#0a0a0a" maxlength="7" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="accentColor">Vurgu Rengi</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="accentColor" name="accentColor" value="#8b0000" />
+                  <input type="text" id="accentColorText" value="#8b0000" maxlength="7" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="textColor">Yazı Rengi</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="textColor" name="textColor" value="#ffffff" />
+                  <input type="text" id="textColorText" value="#ffffff" maxlength="7" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links Section -->
+          <div class="edit-section">
+            <h3 class="section-title">
+              <i class="fa-solid fa-link"></i> Sosyal Medya Bağlantıları
+            </h3>
+            
+            <div class="form-group">
+              <label for="socialTwitter">
+                <i class="fa-brands fa-twitter"></i> Twitter
+              </label>
+              <input 
+                type="text" 
+                id="socialTwitter" 
+                name="socialTwitter" 
+                placeholder="kullaniciadi (veya tam link)" 
+              />
+              <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">Örnek: kullaniciadi veya twitter.com/kullaniciadi</small>
+            </div>
+
+            <div class="form-group">
+              <label for="socialInstagram">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </label>
+              <input 
+                type="text" 
+                id="socialInstagram" 
+                name="socialInstagram" 
+                placeholder="kullaniciadi (veya tam link)" 
+              />
+              <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">Örnek: kullaniciadi veya instagram.com/kullaniciadi</small>
+            </div>
+
+            <div class="form-group">
+              <label for="socialYoutube">
+                <i class="fa-brands fa-youtube"></i> YouTube
+              </label>
+              <input 
+                type="text" 
+                id="socialYoutube" 
+                name="socialYoutube" 
+                placeholder="@kullaniciadi (veya tam link)" 
+              />
+              <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">Örnek: @kullaniciadi veya youtube.com/@kullaniciadi</small>
+            </div>
+
+            <div class="form-group">
+              <label for="socialTwitch">
+                <i class="fa-brands fa-twitch"></i> Twitch
+              </label>
+              <input 
+                type="text" 
+                id="socialTwitch" 
+                name="socialTwitch" 
+                placeholder="kullaniciadi (veya tam link)" 
+              />
+              <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">Örnek: kullaniciadi veya twitch.tv/kullaniciadi</small>
+            </div>
+
+            <div class="form-group">
+              <label for="socialSteam">
+                <i class="fa-brands fa-steam"></i> Steam
+              </label>
+              <input 
+                type="text" 
+                id="socialSteam" 
+                name="socialSteam" 
+                placeholder="Steam ID (veya tam link)" 
+              />
+              <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">Örnek: kullaniciadi veya steamcommunity.com/id/kullaniciadi</small>
+            </div>
+            </div>
+
+            <div class="form-group">
+              <label for="socialCustom">
+                <i class="fa-solid fa-globe"></i> Özel Link
+              </label>
+              <input 
+                type="text" 
+                id="socialCustom" 
+                name="socialCustom" 
+                placeholder="https://..." 
+              />
+            </div>
+          </div>
+
+          <!-- Save Buttons -->
+          <div class="edit-actions">
+            <button type="submit" class="btn-save">
+              <i class="fa-solid fa-check"></i> Değişiklikleri Kaydet
+            </button>
+            <button type="button" class="btn-cancel" id="cancelBtn">
+              <i class="fa-solid fa-xmark"></i> İptal
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-icon">🔪</span>
+        <div>
+          <div class="footer-brand">WHITECHAPEL</div>
+          <div class="footer-tagline">Horror Community</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="#" id="footerDiscord">Discord</a>
+        <a href="index.html#contact">İletişim</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Whitechapel Community. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/profile.js"></script>
+
+</body>
+</html>

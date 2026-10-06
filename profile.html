@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil – WHITECHAPEL</title>
+  <meta name="description" content="Whitechapel kullanıcı profili" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body class="profile-page">
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <span class="loader-icon">🔪</span>
+        <span class="loader-brand">WHITECHAPEL</span>
+        <span class="loader-sub">HORROR COMMUNITY</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ========== CURSOR ========== -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔪</span>
+        <div class="logo-text-wrap">
+          <span class="logo-text">WHITECHAPEL</span>
+          <span class="logo-sub">HORROR COMMUNITY</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#announcements">Duyurular</a></li>
+        <li><a href="index.html#community">Topluluk</a></li>
+        <li><a href="index.html#games">Oyunlar</a></li>
+        <li><a href="index.html#about">Hakkımızda</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Bildirimler">
+          <i class="fa-solid fa-bell"></i>
+          <span class="cart-count" id="cartCount" style="display:none">0</span>
+        </button>
+        <div class="user-menu" id="userMenu" style="display:none;">
+          <button class="user-avatar-btn" id="userAvatarBtn">
+            <img src="" alt="Avatar" id="navAvatar" />
+          </button>
+          <div class="user-dropdown" id="userDropdown">
+            <a href="#" class="dropdown-item" id="myProfileLink">
+              <i class="fa-solid fa-user"></i> Profilim
+            </a>
+            <a href="profile-edit.html" class="dropdown-item">
+              <i class="fa-solid fa-pen"></i> Profili Düzenle
+            </a>
+            <a href="#" class="dropdown-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i> Çıkış
+            </a>
+          </div>
+        </div>
+        <button class="btn-nav" id="loginBtn">Discord ile Giriş</button>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== PROFILE CONTAINER ========== -->
+  <main class="profile-container">
+    
+    <!-- Profile Banner -->
+    <div class="profile-banner" id="profileBanner">
+      <div class="banner-gradient"></div>
+    </div>
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-avatar-wrap">
+        <img src="" alt="Avatar" id="profileAvatar" class="profile-avatar" />
+        <div class="avatar-status" id="avatarStatus"></div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="profile-name-row">
+          <h1 class="profile-username" id="profileUsername">Loading...</h1>
+          <span class="profile-role-badge" id="profileRoleBadge"></span>
+        </div>
+        <p class="profile-status" id="profileStatus"></p>
+        <div class="profile-meta">
+          <span class="meta-item">
+            <i class="fa-solid fa-calendar"></i>
+            Katılma: <span id="joinedDate">-</span>
+          </span>
+          <span class="meta-item">
+            <i class="fa-solid fa-eye"></i>
+            <span id="profileViews">0</span> görüntülenme
+          </span>
+          <span class="meta-item" id="favoriteSlasherMeta" style="display:none;">
+            <i class="fa-solid fa-skull"></i>
+            Favori: <span id="favoriteSlasher">-</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="profile-action-btn edit-profile-btn" id="editProfileBtn" style="display:none;">
+          <i class="fa-solid fa-pen"></i> Profili Düzenle
+        </button>
+        <button class="profile-action-btn follow-btn" id="followBtn" style="display:none;">
+          <i class="fa-solid fa-user-plus"></i> Takip Et
+        </button>
+        <button class="profile-action-btn message-btn" id="messageBtn" style="display:none;">
+          <i class="fa-solid fa-message"></i> Mesaj
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Content Grid -->
+    <div class="profile-content">
+      
+      <!-- Sidebar -->
+      <aside class="profile-sidebar">
+        
+        <!-- Bio Section -->
+        <div class="profile-card">
+          <h3 class="card-title">
+            <i class="fa-solid fa-user"></i> Hakkında
+          </h3>
+          <p class="profile-bio" id="profileBio">Henüz bir bio eklenmemiş.</p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="profile-card">
+          <h3 class="card-title">
+            <i class="fa-solid fa-chart-simple"></i> İstatistikler
+          </h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value" id="statPosts">0</div>
+              <div class="stat-label">Gönderi</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="statFollowers">0</div>
+              <div class="stat-label">Takipçi</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="statFollowing">0</div>
+              <div class="stat-label">Takip</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="statLikes">0</div>
+              <div class="stat-label">Beğeni</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="statGames">0</div>
+              <div class="stat-label">Oyun</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="statWins">0</div>
+              <div class="stat-label">Zafer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="profile-card" id="socialLinksCard" style="display:none;">
+          <h3 class="card-title">
+            <i class="fa-solid fa-link"></i> Sosyal Medya
+          </h3>
+          <div class="social-links" id="socialLinks"></div>
+        </div>
+
+        <!-- Recent Viewers -->
+        <div class="profile-card" id="recentViewersCard" style="display:none;">
+          <h3 class="card-title">
+            <i class="fa-solid fa-eye"></i> Son Ziyaretçiler
+          </h3>
+          <div class="recent-viewers" id="recentViewers"></div>
+        </div>
+
+      </aside>
+
+      <!-- Main Content -->
+      <div class="profile-main">
+        
+        <!-- Badges Section -->
+        <div class="profile-card" id="badgesCard" style="display:none;">
+          <h3 class="card-title">
+            <i class="fa-solid fa-award"></i> Rozetler
+          </h3>
+          <div class="badges-grid" id="badgesGrid"></div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="profile-card">
+          <h3 class="card-title">
+            <i class="fa-solid fa-trophy"></i> Başarımlar 
+            <span class="achievement-count" id="achievementCount">(0)</span>
+          </h3>
+          <div class="achievements-grid" id="achievementsGrid">
+            <div class="empty-state">
+              <i class="fa-solid fa-trophy"></i>
+              <p>Henüz başarım kazanılmamış</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="profile-card">
+          <h3 class="card-title">
+            <i class="fa-solid fa-clock-rotate-left"></i> Son Aktivite
+          </h3>
+          <div class="activity-list" id="activityList">
+            <div class="empty-state">
+              <i class="fa-solid fa-ghost"></i>
+              <p>Henüz aktivite yok</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Comments Section -->
+        <div class="profile-card">
+          <h3 class="card-title">
+            <i class="fa-solid fa-comments"></i> Profil Yorumları
+            <span class="achievement-count" id="commentCount">(0)</span>
+          </h3>
+          
+          <!-- Comment Form (Only if logged in) -->
+          <div class="comment-form" id="commentForm" style="display:none;">
+            <div class="comment-form-header">
+              <img src="" alt="Avatar" id="commentFormAvatar" class="comment-avatar" />
+              <textarea 
+                id="commentTextarea" 
+                placeholder="Profil yorumu yaz... (max 500 karakter)"
+                maxlength="500"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="comment-form-footer">
+              <span class="comment-char-count">
+                <span id="commentCharCount">0</span>/500
+              </span>
+              <button class="btn-comment-submit" id="commentSubmitBtn">
+                <i class="fa-solid fa-paper-plane"></i> Gönder
+              </button>
+            </div>
+          </div>
+
+          <!-- Comments List -->
+          <div class="comments-list" id="commentsList">
+            <div class="empty-state">
+              <i class="fa-solid fa-comment-slash"></i>
+              <p>Henüz yorum yapılmamış. İlk yorumu sen yap!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-icon">🔪</span>
+        <div>
+          <div class="footer-brand">WHITECHAPEL</div>
+          <div class="footer-tagline">Horror Community</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="#" id="footerDiscord">Discord</a>
+        <a href="index.html#contact">İletişim</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Whitechapel Community. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script src="js/profile.js"></script>
+
+</body>
+</html>

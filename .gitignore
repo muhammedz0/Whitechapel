@@ -1,0 +1,9 @@
+node_modules/
+.env
+uploads/profiles/*
+uploads/showcase/*
+!uploads/profiles/.gitkeep
+!uploads/showcase/.gitkeep
+*.log
+.DS_Store
+.vscode/

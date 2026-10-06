@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WHITECHAPEL – Korku/Slasher/Gore Topluluğu</title>
+  <meta name="description" content="Türkiye'nin en aktif korku, slasher ve gore içerik topluluğu. Discord sunucumuzda yüzlerce üye, oyunlar, duyurular ve daha fazlası." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+
+  <!-- ========== LOADER ========== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <span class="loader-icon">🔪</span>
+        <span class="loader-brand">WHITECHAPEL</span>
+        <span class="loader-sub">HORROR COMMUNITY</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- ========== CURSOR ========== -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ========== SEPET (Notifications) ========== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-bell"></i> Bildirimler</h3>
+      <button class="cart-close" id="cartClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fa-solid fa-ghost"></i>
+        <p>Henüz bildirim yok</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">🔪</span>
+        <div class="logo-text-wrap">
+          <span class="logo-text">WHITECHAPEL</span>
+          <span class="logo-sub">HORROR COMMUNITY</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#announcements">Duyurular</a></li>
+        <li><a href="#community">Topluluk</a></li>
+        <li><a href="#games">Oyunlar</a></li>
+        <li><a href="#about">Hakkımızda</a></li>
+        <li><a href="#achievements">Başarımlar</a></li>
+        <li><a href="#contact">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Bildirimler">
+          <i class="fa-solid fa-bell"></i>
+          <span class="cart-count" id="cartCount" style="display:none">0</span>
+        </button>
+        <div class="user-menu" id="userMenu" style="display:none;">
+          <button class="user-avatar-btn" id="userAvatarBtn">
+            <img src="" alt="Avatar" id="navAvatar" />
+          </button>
+          <div class="user-dropdown" id="userDropdown">
+            <a href="#" class="dropdown-item" id="myProfileLink">
+              <i class="fa-solid fa-user"></i> Profilim
+            </a>
+            <a href="profile-edit.html" class="dropdown-item">
+              <i class="fa-solid fa-pen"></i> Profili Düzenle
+            </a>
+            <a href="#" class="dropdown-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i> Çıkış
+            </a>
+          </div>
+        </div>
+        <button class="btn-nav" id="loginBtn">Discord ile Giriş</button>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#announcements" class="mm-link">Duyurular</a></li>
+        <li><a href="#community" class="mm-link">Topluluk</a></li>
+        <li><a href="#games" class="mm-link">Oyunlar</a></li>
+        <li><a href="#about" class="mm-link">Hakkımızda</a></li>
+        <li><a href="#achievements" class="mm-link">Başarımlar</a></li>
+        <li><a href="#contact" class="mm-link">İletişim</a></li>
+        <li><button class="mm-link btn-mm" id="loginBtnMobile">Discord ile Giriş</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- Michael Myers -->
+      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=1920&q=90'); background-color: #0a0a0a;"></div>
+      <!-- Ghostface -->
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=1920&q=90'); background-color: #0a0a0a;"></div>
+      <!-- Jason -->
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1920&q=90'); background-color: #0a0a0a;"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-up">Türkiye'nin En Büyük</p>
+      <h1 class="hero-title reveal-up">
+        KORKU<br /><em>TOPLULUĞU</em>
+      </h1>
+      <p class="hero-desc reveal-up">Slasher, gore, korku filmlerini seviyorsan doğru yerdesin. Discord'da aktif topluluk, oyunlar ve daha fazlası.</p>
+      <div class="hero-btns reveal-up">
+        <a href="#community" class="btn-primary">Topluluğa Katıl <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="btn-ghost" id="discordBtn">Discord'a Git</button>
+      </div>
+    </div>
+    <div class="hero-scroll-hint"><span>Keşfet</span><div class="scroll-line"></div></div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-target="850">0</span><span class="stat-plus">+</span>
+        <p>Aktif Üye</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="45">0</span><span class="stat-plus">+</span>
+        <p>Başarım</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="12">0</span><span class="stat-plus">+</span>
+        <p>Oyun</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2400">0</span><span class="stat-plus">+</span>
+        <p>Paylaşım</p>
+      </div>
+    </div>
+    <div class="hero-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+    </div>
+  </section>
+
+  <!-- ========== TICKER ========== -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span>Korku Filmleri</span><span class="ticker-sep">✦</span>
+      <span>Slasher İçerik</span><span class="ticker-sep">✦</span>
+      <span>Gore Tartışmaları</span><span class="ticker-sep">✦</span>
+      <span>Oyunlar & Etkinlikler</span><span class="ticker-sep">✦</span>
+      <span>Discord Topluluğu</span><span class="ticker-sep">✦</span>
+      <span>Başarım Sistemi</span><span class="ticker-sep">✦</span>
+      <span>Özel İçerikler</span><span class="ticker-sep">✦</span>
+      <span>Film Önerileri</span><span class="ticker-sep">✦</span>
+      <span>Korku Filmleri</span><span class="ticker-sep">✦</span>
+      <span>Slasher İçerik</span><span class="ticker-sep">✦</span>
+      <span>Gore Tartışmaları</span><span class="ticker-sep">✦</span>
+      <span>Oyunlar & Etkinlikler</span><span class="ticker-sep">✦</span>
+      <span>Discord Topluluğu</span><span class="ticker-sep">✦</span>
+      <span>Başarım Sistemi</span><span class="ticker-sep">✦</span>
+      <span>Özel İçerikler</span><span class="ticker-sep">✦</span>
+      <span>Film Önerileri</span><span class="ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ========== DUYURULAR ========== -->
+  <section id="announcements" class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Son Haberler</p>
+        <h2 class="section-title">Duyurular & <em>Güncellemeler</em></h2>
+        <p class="section-sub">Topluluğumuzda neler oluyor? Güncel duyurular ve etkinlikler.</p>
+      </div>
+      <div class="services-grid" id="announcementsGrid">
+        <div class="service-card" data-delay="0">
+          <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <div class="service-card-inner">
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=600&q=85')"></div>
+            <div class="service-info">
+              <h3>Yeni Oyun: Katil Kim?</h3>
+              <p>Bu Cuma akşamı Discord'ta yeni oyunumuz başlıyor! Kayıt olmayı unutmayın.</p>
+              <a href="#games" class="service-link">Detayları Gör <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="service-card" data-delay="100">
+          <div class="service-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="service-card-inner">
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=600&q=85')"></div>
+            <div class="service-info">
+              <h3>Yeni Başarımlar Eklendi</h3>
+              <p>5 yeni başarım sisteme eklendi. "Gece Bekçisi" başarımını kazanmak için...</p>
+              <a href="#achievements" class="service-link">Başarımlara Git <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="service-card" data-delay="200">
+          <div class="service-icon"><i class="fa-solid fa-film"></i></div>
+          <div class="service-card-inner">
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=85')"></div>
+            <div class="service-info">
+              <h3>Film Gecesi: The Texas Chainsaw Massacre</h3>
+              <p>Bu hafta sonu klasik korku filmi izliyoruz. Discord voice'ta buluşuyoruz!</p>
+              <a href="#community" class="service-link">Katıl <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="#" class="btn-primary">Tüm Duyurular</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARALLAX BAND ========== -->
+  <div class="parallax-band">
+    <div class="parallax-bg" style="background-image:url('https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=1920&q=90')"></div>
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content">
+      <p class="parallax-quote">"Korkuyu Seviyorsak,<br /><em>Birlikte Yaşayalım."</em></p>
+      <button class="btn-primary" id="joinDiscord">Discord'a Katıl</button>
+    </div>
+  </div>
+
+  <!-- ========== DISCORD WIDGET ========== -->
+  <section id="discord-widget" class="section-pad bg-soft">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Canlı İstatistikler</p>
+        <h2 class="section-title">Discord <em>Sunucumuz</em></h2>
+        <p class="section-desc">Türkiye'nin en aktif korku topluluğuna katıl!</p>
+      </div>
+
+      <div class="discord-widget-wrap">
+        <!-- Sol: İstatistikler -->
+        <div class="discord-stats">
+          <div class="stat-box">
+            <div class="stat-icon">
+              <i class="fa-brands fa-discord"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="discordOnline">-</div>
+              <div class="stat-label">Çevrimiçi</div>
+            </div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="discordMembers">-</div>
+              <div class="stat-label">Üye</div>
+            </div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-icon">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="discordVoice">-</div>
+              <div class="stat-label">Seste</div>
+            </div>
+          </div>
+
+          <div class="stat-box full-width">
+            <button class="btn-discord-join" id="discordJoinBtn">
+              <i class="fa-brands fa-discord"></i>
+              Sunucuya Katıl
+            </button>
+          </div>
+        </div>
+
+        <!-- Sağ: Discord iframe widget (opsiyonel) -->
+        <div class="discord-embed">
+          <iframe 
+            src="https://discord.com/widget?id=1415926415576272949&theme=dark" 
+            width="350" 
+            height="500" 
+            allowtransparency="true" 
+            frameborder="0" 
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TOPLULUK İÇERİĞİ ========== -->
+  <section id="community" class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Sosyal Alan</p>
+        <h2 class="section-title">Topluluk <em>Paylaşımları</em></h2>
+      </div>
+      
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="slasher">Slasher</button>
+        <button class="filter-btn" data-filter="gore">Gore</button>
+        <button class="filter-btn" data-filter="psychological">Psikolojik</button>
+        <button class="filter-btn" data-filter="general">Genel</button>
+      </div>
+
+      <div class="products-grid" id="postsGrid">
+        <!-- Paylaşımlar buraya dinamik yüklenecek -->
+        <div class="product-card" data-cat="slasher">
+          <div class="product-badge">Popüler</div>
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=500&q=85" alt="Post" loading="lazy"/>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Slasher</span>
+            <h3>Halloween Franchise Sıralaması</h3>
+            <p>Tüm Halloween filmlerini en iyiden en kötüye sıraladım...</p>
+            <div class="product-footer">
+              <span class="product-price"><i class="fa-solid fa-heart"></i> 45</span>
+              <span class="product-price"><i class="fa-solid fa-comment"></i> 12</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="gore">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=500&q=85" alt="Post" loading="lazy"/>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Gore</span>
+            <h3>En Rahatsız Edici 10 Sahne</h3>
+            <p>Korku sinemasındaki en gore sahneleri derledim...</p>
+            <div class="product-footer">
+              <span class="product-price"><i class="fa-solid fa-heart"></i> 67</span>
+              <span class="product-price"><i class="fa-solid fa-comment"></i> 23</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="psychological">
+          <div class="product-badge new">Yeni</div>
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=85" alt="Post" loading="lazy"/>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Psikolojik</span>
+            <h3>Hereditary İncelemesi</h3>
+            <p>Modern korku sinemasının başyapıtlarından biri...</p>
+            <div class="product-footer">
+              <span class="product-price"><i class="fa-solid fa-heart"></i> 89</span>
+              <span class="product-price"><i class="fa-solid fa-comment"></i> 34</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <button class="btn-primary" id="loadMorePosts">Daha Fazla Yükle</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OYUNLAR ========== -->
+  <section id="games" class="section-pad bg-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow light">Eğlence</p>
+        <h2 class="section-title light">Korku <em>Oyunları</em></h2>
+        <p class="section-sub light">Discord sunucumuzda oynayabileceğin eğlenceli oyunlar.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-delay="0">
+          <div class="service-icon"><i class="fa-solid fa-mask"></i></div>
+          <div class="service-card-inner">
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=600&q=85')"></div>
+            <div class="service-info">
+              <h3>Katil Kim?</h3>
+              <p>Aranda bir katil var! Kim olduğunu bul veya kurbanı sen ol. 6-12 kişilik oyun.</p>
+              <button class="service-link">Yakında <i class="fa-solid fa-lock"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="service-card" data-delay="100">
+          <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+          <div class="service-card-inner">
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=85')"></div>
+            <div class="service-info">
+              <h3>Korku Trivia</h3>
+              <p>Korku filmleri hakkında ne kadar bilgilisin? Test et ve başarım kazan!</p>
+              <button class="service-link">Yakında <i class="fa-solid fa-lock"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="service-card" data-delay="200">
+          <div class="service-icon"><i class="fa-solid fa-ghost"></i></div>
+          <div class="service-card-inner">
+            <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=600&q=85')"></div>
+            <div class="service-info">
+              <h3>Hayatta Kalma</h3>
+              <p>Korku senaryolarında doğru kararları vererek hayatta kal. Tek ya da takım.</p>
+              <button class="service-link">Yakında <i class="fa-solid fa-lock"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HAKKIMIZDA ========== -->
+  <section id="about" class="section-pad">
+    <div class="container about-grid">
+      <div class="about-visuals">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=800&q=85" alt="Whitechapel" />
+        </div>
+        <div class="about-img-sec">
+          <img src="https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=500&q=85" alt="Community" />
+        </div>
+        <div class="about-badge">
+          <span class="badge-num">2</span>
+          <span class="badge-text">Yıllık<br/>Deneyim</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-eyebrow">Hakkımızda</p>
+        <h2 class="section-title">Türkiye'nin<br/><em>En Aktif</em></h2>
+        <p><strong>WHITECHAPEL</strong> olarak 2023'ten beri korku, slasher ve gore içeriği seven insanları bir araya getiriyoruz. Discord sunucumuzda 850+ aktif üyeyle film tartışmaları, oyunlar ve özel etkinlikler düzenliyoruz.</p>
+        <p>Her türden korku içeriğine açığız: klasik slasher'lardan modern psikolojik korkulara, gore'dan supernatural temalara kadar. Güvenli, saygılı ve eğlenceli bir ortam sunuyoruz.</p>
+        <div class="about-features">
+          <div class="af-item"><i class="fa-solid fa-check-circle"></i> 850+ Aktif Üye</div>
+          <div class="af-item"><i class="fa-solid fa-check-circle"></i> Günlük Etkinlikler</div>
+          <div class="af-item"><i class="fa-solid fa-check-circle"></i> Film Geceleri</div>
+          <div class="af-item"><i class="fa-solid fa-check-circle"></i> Özel Oyunlar</div>
+          <div class="af-item"><i class="fa-solid fa-check-circle"></i> Başarım Sistemi</div>
+          <div class="af-item"><i class="fa-solid fa-check-circle"></i> Güvenli Ortam</div>
+        </div>
+        <button class="btn-primary" id="joinBtn">Discord'a Katıl</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BAŞARIMLAR ========== -->
+  <section id="achievements" class="section-pad bg-dark">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow light">Rozetler</p>
+        <h2 class="section-title light">Başarım <em>Sistemi</em></h2>
+        <p class="section-sub light">Topluluğa katıl, aktivite göster ve özel başarımlar kazan!</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-img">
+            <div class="how-num">🏆</div>
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&q=80" alt="Achievement" />
+          </div>
+          <div class="team-info">
+            <h3>Gece Bekçisi</h3>
+            <p>Gece 3'te aktif ol ve bu başarımı kazan. Discord'ta mesaj at!</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img">
+            <div class="how-num">💀</div>
+            <img src="https://images.unsplash.com/photo-1603376388911-5bf00f36ffc8?w=400&q=80" alt="Achievement" />
+          </div>
+          <div class="team-info">
+            <h3>Korku Gurusu</h3>
+            <p>100+ film önerisi paylaş ve toplulukta tanın!</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img">
+            <div class="how-num">🎭</div>
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&q=80" alt="Achievement" />
+          </div>
+          <div class="team-info">
+            <h3>Oyun Ustası</h3>
+            <p>10 farklı oyunu kazan ve bu rozeti hak et!</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-img">
+            <div class="how-num">🩸</div>
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&q=80" alt="Achievement" />
+          </div>
+          <div class="team-info">
+            <h3>Gore Severler</h3>
+            <p>Özel gore kanalına erişim kazan!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== İLETİŞİM ========== -->
+  <section id="contact" class="section-pad">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="section-eyebrow">İletişim</p>
+        <h2 class="section-title">Bize <em>Ulaş</em></h2>
+        <div class="contact-items">
+          <a href="https://discord.gg/whitechapel" class="ci-item" target="_blank">
+            <i class="fa-brands fa-discord"></i>
+            <div><strong>Discord</strong><span>Ana Sunucumuz</span></div>
+          </a>
+          <a href="mailto:contact@whitechapel.com" class="ci-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div><strong>E-posta</strong><span>contact@whitechapel.com</span></div>
+          </a>
+          <div class="ci-item">
+            <i class="fa-solid fa-users"></i>
+            <div><strong>Üye Sayısı</strong><span>850+ Aktif Üye</span></div>
+          </div>
+          <div class="ci-item">
+            <i class="fa-solid fa-clock"></i>
+            <div><strong>7/24</strong><span>Her Zaman Aktif</span></div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="Reddit"><i class="fa-brands fa-reddit"></i></a>
+        </div>
+      </div>
+      <div class="contact-map">
+        <div style="background: var(--dark-3); border-radius: var(--radius-lg); padding: 60px 40px; text-align: center; height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;">
+          <i class="fa-brands fa-discord" style="font-size: 80px; color: var(--accent);"></i>
+          <h3 style="font-family: var(--font-display); font-size: 32px; color: var(--white); letter-spacing: 2px;">Discord'da Buluşalım</h3>
+          <p style="color: var(--text-muted); max-width: 400px;">Topluluğumuza katılmak için Discord sunucumuza gel. Film tartışmaları, oyunlar ve daha fazlası seni bekliyor!</p>
+          <button class="btn-primary" id="finalDiscordBtn" style="margin-top: 10px;">Sunucuya Katıl</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-icon" style="font-size: 36px; margin-bottom: 8px; display: block;">🔪</span>
+          <span class="logo-text">WHITECHAPEL</span>
+          <span class="logo-sub">HORROR COMMUNITY</span>
+        </div>
+        <p>Türkiye'nin en aktif korku, slasher ve gore topluluğu. Korkuyu seviyorsan aramıza katıl.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Hızlı Bağlantılar</h4>
+        <ul>
+          <li><a href="#announcements">Duyurular</a></li>
+          <li><a href="#community">Topluluk</a></li>
+          <li><a href="#games">Oyunlar</a></li>
+          <li><a href="#about">Hakkımızda</a></li>
+          <li><a href="#achievements">Başarımlar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kategoriler</h4>
+        <ul>
+          <li><a href="#community">Slasher</a></li>
+          <li><a href="#community">Gore</a></li>
+          <li><a href="#community">Psikolojik Korku</a></li>
+          <li><a href="#community">Supernatural</a></li>
+          <li><a href="#community">Thriller</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <ul>
+          <li><i class="fa-brands fa-discord"></i> Discord Sunucu</li>
+          <li><i class="fa-solid fa-users"></i> 850+ Aktif Üye</li>
+          <li><i class="fa-solid fa-envelope"></i> contact@whitechapel.com</li>
+          <li><i class="fa-solid fa-globe"></i> Türkiye</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 WHITECHAPEL Horror Community. Tüm hakları saklıdır.</p>
+      <div class="footer-links">
+        <a href="#">Gizlilik Politikası</a>
+        <a href="#">Topluluk Kuralları</a>
+        <a href="#">KVKK</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Discord Float Button -->
+  <a href="https://discord.gg/whitechapel" class="wa-float" target="_blank" aria-label="Discord" style="background: #5865F2;">
+    <i class="fa-brands fa-discord"></i>
+  </a>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Yukarı Çık"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

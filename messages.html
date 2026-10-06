@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mesajlar – WHITECHAPEL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/messages.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader" class="hidden">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <span class="loader-icon">🔪</span>
+        <span class="loader-brand">WHITECHAPEL</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔪</span>
+        <div class="logo-text-wrap">
+          <span class="logo-text">WHITECHAPEL</span>
+          <span class="logo-sub">HORROR COMMUNITY</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn-nav">Ana Sayfa</a>
+        <div class="user-menu" id="userMenu">
+          <button class="user-avatar-btn" id="userAvatarBtn">
+            <img src="" alt="Avatar" id="navAvatar" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Messages Container -->
+  <main class="messages-container">
+    <div class="messages-layout">
+      
+      <!-- Conversations List -->
+      <aside class="conversations-sidebar">
+        <div class="conversations-header">
+          <h2><i class="fa-solid fa-messages"></i> Mesajlar</h2>
+        </div>
+        <div class="conversations-list" id="conversationsList">
+          <div class="empty-state">
+            <i class="fa-solid fa-comment-slash"></i>
+            <p>Henüz mesaj yok</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Chat Area -->
+      <div class="chat-area" id="chatArea">
+        <div class="chat-empty">
+          <i class="fa-solid fa-comments"></i>
+          <p>Bir konuşma seç veya yeni mesaj başlat</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/messages.js"></script>
+
+</body>
+</html>
